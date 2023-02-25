@@ -1,15 +1,13 @@
 def create_sf():
     shared_file = open('Shared_file.txt', 'w')
     shared_file.close()
-    f1 = open('1.txt', 'r', encoding='utf-8')
-    f2 = open('2.txt', 'r', encoding='utf-8')
-    f3 = open('3.txt', 'r', encoding='utf-8')
-    file1_list = f1.readlines()
-    file2_list = f2.readlines()
-    file3_list = f3.readlines()
-    f1.close()
-    f2.close()
-    f3.close()
+    with open('1.txt', 'r', encoding='utf-8') as f1:
+        file1_list = f1.readlines()
+    with open('2.txt', 'r', encoding='utf-8') as f2:
+        file2_list = f2.readlines()
+    with open('3.txt', 'r', encoding='utf-8') as f3:
+        file3_list = f3.readlines()
+
     all_list = (file1_list, file2_list, file3_list)
     all_list = sorted(all_list, key=len)
 
